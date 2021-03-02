@@ -2,7 +2,7 @@
 # gambling.py
 # Author: Matthew Kellett, Jacob Lum
 # Created: 3/03/2021
-# Version: 0.3
+# Version: 0.4
 from random import *
 choice = "y"
 SUITS = ['♤', '♡', '♧', '♢']
@@ -59,24 +59,19 @@ while choice != "n":
         history.append(card)
         history.pop(0)
 
+        # Redblack by Matthew
         print(card)
-        if card == "♡" or card == "♢":
-            if guess == "red":
-                print("You won!")
-                bet *= 2
-            else:
-                print("You lost!")
-                bet *= 0
-        elif card == "♤" or card == "♧":
-            if guess == "black":
-                print("You won!")
-                bet *= 2
-            else:
-                print("You lost!")
-                bet *= 0
+        if (SUITS.index(card) == 0 or SUITS.index(card) == 2 and
+                guess == "black"):
+            print("You won!")
+            bet *= 2
+        elif (SUITS.index(card) == 1 or SUITS.index(card) == 3 and
+                guess == "red"):
+            print("You won!")
+            bet *= 2
         else:
-            print("Something happened...")
-            bet *= 0
+            print("You lose!")
+            bet = 0
 
     # Suits by Jacob and Matthew
     elif game == "suits":
@@ -103,7 +98,7 @@ while choice != "n":
                 print("You Win")
                 bet *= 4
         else:
-            bet *= 0
+            bet = 0
             print("You lose")
 
     # check if user won or not
