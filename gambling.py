@@ -1,15 +1,15 @@
 ##
 # gambling.py
 # Author: Matthew Kellett, Jacob Lum
-# Created: 2/03/2021
-# Version: 0.1
+# Created: 3/03/2021
+# Version: 0.2
 choice = "y"
 SUITS = ['♤', '♡', '♧', '♢']
 history = ['♤', '♡', '♧', '♢']
 bet = 0
 from random import *
 while choice != "n":
-    game = input("""What game would you to play (redblack, suits): """)
+    game = input("What game would you to play (redblack, suits): ")
 
 # Fancy box
     print("┏", "━"*len(history),"┓")
@@ -19,7 +19,7 @@ while choice != "n":
     # Redblack
     if game == "redblack":
         if bet == 0:
-            bet = float(input("How much bet? "))
+            bet = float(input("How much do you want to bet? "))
         else:
             print("Your bet is ${}".format(bet))        
         guess = input("What do you guess? ")
@@ -30,25 +30,25 @@ while choice != "n":
         print(card)
         if card == "♡" or card == "♢":
             if guess == "red":
-                print("yes red")
+                print("You won!")
                 bet *= 2
             else:
-                print("uh oh")
+                print("You won!")
                 bet *= 0
         elif card == "♤" or card == "♧":
             if guess == "black":
-                print("yes black")
+                print("You won!")
                 bet *= 2
             else:
-                print("uh oh")
+                print("You lost!")
                 bet *= 0
         else:
-            print("oh no")
+            print("Something happened...")
             bet *= 0
     # Suits
     if game == "suits":
         if bet == 0:
-            bet = float(input("How much bet? "))
+            bet = float(input("How much do you want to bet? "))
         else:
             print("Your bet is ${}".format(bet))
         guess = input("What do you guess? ")
@@ -57,19 +57,19 @@ while choice != "n":
         history.pop(0)
         print(card)
         if card == "♤" and guess == "spades":
-            print("spades yes")
+            print("You won!")
             bet *= 4
         elif card == "♡" and guess == "hearts":
-            print("hearts yes")
+            print("You won!")
             bet *= 4
         elif card == "♧" and guess == "clubs":
-            print("clubs yes")
+            print("You won!")
             bet *= 4
         elif card == "♢" and guess == "diamonds":
-            print("diamonds yes")
+            print("You won!")
             bet *= 4
         else:
-            print("wrong")
+            print("You lost!")
             bet *= 0
 
     if bet > 0:
