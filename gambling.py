@@ -2,7 +2,7 @@
 # gambling.py
 # Author: Matthew Kellett, Jacob Lum
 # Created: 3/03/2021
-# Version: 0.4
+# Version: 0.41
 from random import *
 choice = "y"
 SUITS = ['♤', '♡', '♧', '♢']
@@ -29,7 +29,7 @@ def money_input():
 
 while choice != "n":
 
-    # Error checking by matthew
+    # Error checking by Matthew
     while True:
         game = input("What game would you to play (redblack, suits): ")
         if game != "redblack" and game != "suits":
@@ -37,7 +37,7 @@ while choice != "n":
         else:
             break
 
-# Fancy box by jacob
+# Fancy box by Jacob
     print("History:")
     print("┏", "━"*len(history), "┓")
     print("┃", " ".join(history), "┃")
@@ -79,7 +79,7 @@ while choice != "n":
             bet = money_input()
         else:
             print("Your bet is ${}".format(bet))
-        # suits Error checking by Matthew
+        # Suits error checking by Matthew
 
         while True:
             guess = input("What do you guess? ")
@@ -101,7 +101,7 @@ while choice != "n":
             bet = 0
             print("You lose")
 
-    # check if user won or not
+    # Check if user won or not
     if bet > 0:
         while True:
             choice = input("Your balance is {}. Would\
@@ -115,7 +115,7 @@ while choice != "n":
                 print("ERROR: Please enter a proper answer (y/n)")
     else:
         print("GAME OVER")
-        # check if user wants to play again
+        # Check if user wants to play again
         while True:
             choice = input("Do you want to play again? (y/n) ")
             if choice == "y":
